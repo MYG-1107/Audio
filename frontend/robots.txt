@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /room.html
+
+Sitemap: https://voxroom.app/sitemap.xml

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#6c63ff" />
+
+  <!-- SEO -->
+  <title>VoxRoom – Free Instant Audio Rooms | No Login Required</title>
+  <meta name="description" content="VoxRoom lets you create and join real-time audio rooms instantly. No account, no download – just share a Room ID and start talking." />
+  <meta name="keywords" content="audio room, voice chat, WebRTC, online voice, instant voice call, study room, remote collaboration, no login audio chat" />
+  <link rel="canonical" href="https://voxroom.app/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://voxroom.app/" />
+  <meta property="og:title" content="VoxRoom – Free Instant Audio Rooms" />
+  <meta property="og:description" content="Create or join real-time voice rooms right in your browser. No sign-up, no downloads." />
+  <meta property="og:image" content="https://voxroom.app/og-image.png" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="VoxRoom – Free Instant Audio Rooms" />
+  <meta name="twitter:description" content="Real-time voice rooms in your browser. Share a Room ID and talk instantly." />
+  <meta name="twitter:image" content="https://voxroom.app/og-image.png" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "VoxRoom",
+    "url": "https://voxroom.app",
+    "description": "Free real-time audio rooms – no login required. Powered by WebRTC.",
+    "applicationCategory": "CommunicationApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="home-page" data-theme="dark">
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-inner container">
+      <a href="index.html" class="logo" aria-label="VoxRoom home">
+        <svg class="logo-icon" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+          <circle cx="20" cy="20" r="20" fill="var(--accent)"/>
+          <path d="M20 10 C15 10 11 14 11 19 L11 21 C11 26 15 30 20 30 C25 30 29 26 29 21 L29 19 C29 14 25 10 20 10Z" fill="white"/>
+          <rect x="17" y="28" width="6" height="5" rx="1" fill="white"/>
+          <rect x="14" y="32" width="12" height="2" rx="1" fill="white"/>
+        </svg>
+        <span class="logo-text">VoxRoom</span>
+      </a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode" title="Toggle theme">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <circle cx="12" cy="12" r="5"/>
+          <line x1="12" y1="1" x2="12" y2="3"/>
+          <line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1" y1="12" x2="3" y2="12"/>
+          <line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <main class="home-main">
+    <section class="hero container">
+      <div class="hero-text">
+        <h1 class="hero-title">Voice rooms,<br /><span class="gradient-text">instantly.</span></h1>
+        <p class="hero-sub">No account. No download. Just share a Room ID and start talking – right in your browser.</p>
+      </div>
+
+      <div class="card action-card">
+        <!-- Nickname -->
+        <div class="form-group">
+          <label for="nicknameInput" class="form-label">Your nickname (optional)</label>
+          <input
+            type="text"
+            id="nicknameInput"
+            class="form-input"
+            placeholder="e.g. Alex"
+            maxlength="30"
+            autocomplete="nickname"
+          />
+        </div>
+
+        <!-- Create Room -->
+        <button class="btn btn-primary btn-full" id="createRoomBtn" aria-label="Create a new audio room">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="8" x2="12" y2="16"/>
+            <line x1="8" y1="12" x2="16" y2="12"/>
+          </svg>
+          Create a Room
+        </button>
+
+        <div class="divider"><span>or join existing</span></div>
+
+        <!-- Join Room -->
+        <div class="form-group">
+          <label for="roomIdInput" class="form-label">Room ID</label>
+          <div class="input-row">
+            <input
+              type="text"
+              id="roomIdInput"
+              class="form-input"
+              placeholder="e.g. ABCD-1234"
+              maxlength="16"
+              autocomplete="off"
+              aria-describedby="roomIdError"
+            />
+            <button class="btn btn-secondary" id="joinRoomBtn" aria-label="Join the room">
+              Join
+            </button>
+          </div>
+          <p class="field-error hidden" id="roomIdError" role="alert"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features container" aria-labelledby="featuresHeading">
+      <h2 class="section-title" id="featuresHeading">Why VoxRoom?</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon" aria-hidden="true">⚡</div>
+          <h3>Instant</h3>
+          <p>Create a room in one click and share the link. Guests join with zero friction.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" aria-hidden="true">🔒</div>
+          <h3>Private</h3>
+          <p>Your audio is streamed peer-to-peer via WebRTC. No recordings, no servers in the middle.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" aria-hidden="true">📱</div>
+          <h3>Mobile-friendly</h3>
+          <p>Works on any device with a modern browser – phone, tablet, or laptop.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" aria-hidden="true">🌐</div>
+          <h3>No install</h3>
+          <p>Nothing to download or install. Open the link, allow microphone access, talk.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Use cases -->
+    <section class="use-cases container" aria-labelledby="useCasesHeading">
+      <h2 class="section-title" id="useCasesHeading">Perfect for…</h2>
+      <ul class="use-case-list">
+        <li>📚 <strong>Study groups</strong> – silent focus + quick voice check-ins</li>
+        <li>💼 <strong>Remote teams</strong> – fast standup without scheduling a call</li>
+        <li>🎮 <strong>Gaming squads</strong> – low-latency in-game comms</li>
+        <li>💬 <strong>Support communities</strong> – anonymous safe voice spaces</li>
+        <li>🏘 <strong>Local communities</strong> – hyperlocal voice discussions</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2025 VoxRoom · Audio communication for everyone</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

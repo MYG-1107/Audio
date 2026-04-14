@@ -15,7 +15,7 @@
 
   // ── Config ───────────────────────────────────────────────────────────────────
   // Replace with your deployed backend URL in production
-  const BACKEND_URL = 'http://localhost:3000';
+  const BACKEND_URL = 'https://audio-8grl.onrender.com';
 
   const ICE_SERVERS = [
     { urls: 'stun:stun.l.google.com:19302' },

@@ -8,7 +8,7 @@
 
   // ── Config ──────────────────────────────────────────────────────────────────
   // Replace with your deployed backend URL in production
-  const BACKEND_URL = 'http://localhost:3000';
+  const BACKEND_URL = 'https://audio-8grl.onrender.com';
 
   // ── DOM refs ────────────────────────────────────────────────────────────────
   const createRoomBtn = document.getElementById('createRoomBtn');
